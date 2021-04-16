@@ -27,7 +27,7 @@
 #define sgemm_ sgemm_workaround
 #define FINTEGER int
 
-#define lapack_int     int
+#define lapack_int     __CLPK_integer
 #define lapack_logical lapack_int
 #define LAPACK_lsame lsame_workaround
 
@@ -63,7 +63,7 @@ int sgemm_ (const char *transa, const char *transb, FINTEGER *m, FINTEGER *
 lapack_logical LAPACK_lsame( char* ca,  char* cb,
                               lapack_int lca, lapack_int lcb )
 {
-    int n = 1;
+    lapack_int n = 1;
     return lsamen_(&n, ca, cb);
 }
 
